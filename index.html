@@ -9,19 +9,19 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Workout">
 <title>Workout App</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff}
-.app{max-width:430px;margin:0 auto;height:100vh;display:flex;flex-direction:column;background:#0a0a0a}
-.screens{flex:1;overflow:hidden;position:relative;min-height:0}
-.screen{position:absolute;inset:0;overflow-y:auto;display:none;-webkit-overflow-scrolling:touch}
+html{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;height:100%;overflow:hidden}
+.app{max-width:430px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column;background:#0a0a0a;overflow:hidden}
+.screens{flex:1 1 0;overflow:hidden;position:relative;min-height:0}
+.screen{position:absolute;top:0;left:0;right:0;bottom:0;overflow-y:auto;display:none;-webkit-overflow-scrolling:touch}
 .screen.active{display:block}
-.bottom-nav{display:flex;background:#111;border-top:0.5px solid #222;padding:8px 0 18px;flex-shrink:0}
+.bottom-nav{display:flex;background:#111;border-top:1px solid #222;padding:8px 0 20px;flex:0 0 auto}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;background:none;border:none;color:#555;font-size:10px;cursor:pointer;transition:color .15s}
 .nav-btn.active{color:#E8FF47}
 .nav-btn i{font-size:22px}
@@ -536,7 +536,7 @@ async function init(){
   const h=new Date().getHours();
   document.getElementById('home-greeting').textContent=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
   buildWeekGrid();updateTodayCard();buildMuscleTabs();await loadStats();renderRoutines();renderExercises();
-  if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+  if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 }
 init();
 </script>
